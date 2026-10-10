@@ -1,129 +1,78 @@
 ---
 name: design-critique
-description: "Audit implemented UI against a 37-pattern slop catalog and return ranked, scoped findings with named alternatives. Use when the user asks to review their UI, audit a design, check for AI-generated tells, critique the visuals, or asks 'does this look AI-generated'. For rule-compliance, accessibility, or UX audits use web-design-guidelines instead."
+description: Review an interface's visual hierarchy, usability, interaction states, and product fit. Use when asked to critique a UI, assess polish or accessibility concerns, identify generic design choices, or recommend what to improve. Return grounded findings and concrete alternatives; use frontend-design to implement changes.
 skill-type: workflow
 metadata:
   upstream:
     taxonomy: "https://impeccable.style/slop"
     license: "Web-published; descriptions paraphrased with attribution"
-version: 1.0.1
+version: 2.0.0
 ---
 
-# design-critique
+# Design Critique
 
-Walk a target UI category by category against the slop catalog. Record concrete findings only. Group by category, rank by severity, and close with the three highest-leverage fixes plus a one-line taste verdict.
+Judge how well an interface serves its intended users and tasks. Preserve useful
+product conventions and distinguish consequential problems from optional taste
+preferences. A familiar font, card grid, or color does not establish poor design
+or AI authorship.
 
-## When To Use
+## Ground the review
 
-Trigger this skill when the request involves any of the following:
+Use the brief, existing product, and requested scope to identify what the user
+needs to understand or accomplish. For visual judgments, prefer the rendered
+interface or supplied screenshots. Read source to explain causes and locate
+changes; markup alone is not the highest-fidelity view of the experience.
 
-- "Review my UI", "audit this design", "critique the visuals", "rate the polish".
-- "Does this look AI-generated?", "find the slop", "where is this generic?".
-- "Is this design dated?", "what should I change first?", "give me the taste pass".
-- The user pastes markup, points at a component file, or shows a screenshot and asks for opinions on the look.
+A request to review a supplied URL normally includes ordinary inspection of that
+page using available browser tools. Follow access and action boundaries: reviewing
+a flow does not authorize submissions, purchases, destructive actions, or changes
+to shared data. Ask only when necessary access or a consequential action is
+unresolved, not for another permission to look at the requested surface.
 
-## When Not To Use
+A screenshot can establish visible layout, not keyboard behavior or hidden states.
+Source can reveal likely defects without proving how the running interface behaves.
+When rendering or interaction is unavailable, give the useful supported findings
+and identify the consequential evidence gaps.
 
-- Accessibility / WCAG audits beyond contrast — use a dedicated a11y tool. The slop catalog covers contrast, line length, line height, body size, and heading skips, but not full WCAG coverage.
-- Generating UI components or layouts from scratch — that is a different problem.
-- Reasoning about design tokens, exporting tokens, or linting a DESIGN.md — that is `design-md`.
-- Performance, bundle size, or build hygiene reviews.
+## Follow the important questions
 
-## Inputs
+Choose depth from the task and evidence, rather than walking a fixed catalog:
 
-The skill accepts, in order of preference:
+- Does the hierarchy make the important information and actions easy to find?
+- Do grouping, density, navigation, and language support the actual workflow?
+- Are loading, empty, error, selected, and disabled states understandable where
+  they matter? Does realistic or long content expose layout failures?
+- Can the relevant flow work at its intended viewport sizes and with keyboard
+  input? Are focus, names, semantics, contrast, and motion appropriate?
+- Does the visual language fit the product and remain coherent with its other
+  screens? Is decoration helping the experience or competing with it?
 
-1. **Pasted HTML / JSX / TSX markup**, with or without surrounding CSS or Tailwind classes. Highest-fidelity input — the agent can scan for tells directly.
-2. **File paths to component or stylesheet files** in the active project. The agent reads them and walks the catalog.
-3. **A path to a local screenshot already on disk**. Useful when markup is unavailable; the agent reasons from rendered visuals.
-4. **A URL plus explicit opt-in for Playwright capture**. Only when the user says "go ahead and capture it" or equivalent. Use the existing `playwright` skill to render and snapshot before scanning.
-5. **A textual description only**. Lowest-fidelity fallback. Findings emitted from this input must carry `confidence: low` per the finding template.
+Use the project's accessibility checks or other suitable tools for claims they
+can establish. Automated checks complement rendered and interaction evidence;
+passing a scanner does not establish complete accessibility compliance. A formal
+standards audit needs its stated scope and evidence, beyond this critique.
 
-If the user provides only a URL with no opt-in, ask whether to capture before proceeding. Do not silently fetch.
+`references/slop-catalog.md` is optional inspiration for recurring design smells.
+Its examples are not exhaustive, findings need not match a pattern, and alternatives
+must fit the product. Do not assign severity from the appearance of a pattern.
 
-## Audit Playbook
+## Return useful findings
 
-1. **Load the catalog.** Read `references/slop-catalog.md` in full. The catalog is the closed set of patterns — do not introduce new ones.
-2. **Load the finding template.** Read `references/finding-template.md`. Every finding must conform to its schema.
-3. **Ingest the input.** Read the markup, file, screenshot, or description. If multiple inputs are given, treat the most concrete (markup or screenshot) as primary and use the rest as supporting context.
-4. **Walk the catalog category by category.** Categories are: Visual Details, Typography, Color and Contrast, Layout and Space, Motion, Interaction, Responsive, General Quality. Process them in this order.
-5. **For each pattern, look for the `tells`.** If you can point at a specific element, selector, file:line, or screenshot region that exhibits the tell, draft a finding using the template. If you cannot, move on. Do not speculate.
-6. **Rank within each category.** Sort findings high → medium → low severity.
-7. **Pick the top three highest-leverage fixes** across all categories. Leverage = improvement-to-effort ratio, not raw severity. Often a single `high` finding with a one-line fix beats three `medium` findings requiring a rewrite.
-8. **Write the verdict.** One honest, specific line characterizing the overall taste level.
-9. **Surface coverage status in two distinct buckets.** Patterns split into:
-   - `Checked — no finding`: patterns walked with the given input and definitively ruled out (e.g., "no `text-align: justify` declaration found anywhere"). These prove the catalog was walked completely.
-   - `Unverifiable`: patterns whose `tells` could not be operationalized against the given input (e.g., "bounce-elastic-easing requires a rendered view; markup-only input cannot confirm"). These tell the user what to revisit if they want fuller coverage.
-   Listing one without the other under-serves the user. Do not collapse both into a single "coverage gaps" block.
+For each finding, show the affected element or state, what you observed, why it
+matters to the user, and a concrete improvement. Use a screenshot region, route,
+selector, or source location as appropriate. Separate observed behavior from an
+inference and name the evidence needed when that distinction changes the advice.
 
-## Output Shape
+Prioritize by actual impact, reach, and the purpose of the review. Consolidate
+observations that share a cause or fix. Offer a small number of alternatives when
+there is a meaningful tradeoff; avoid prescribing a redesign to fix a local issue.
+`references/finding-template.md` has an optional example, not a required schema.
 
-```markdown
-# Design Critique: <target name or path>
+Report the most useful findings first, with relevant coverage limits. No finding
+quota, fixed top three, exhaustive no-finding inventory, or taste verdict is
+required. A review can conclude that no meaningful change is warranted.
 
-## Findings by Category
-
-### Color and Contrast
-- **pattern-id:** ai-color-palette
-  **where:** ...
-  **evidence:** ...
-  **severity:** high
-  **recommended-fix:** ...
-  **pattern-match-strength:** full
-  **confidence:** high
-
-### Layout and Space
-- **pattern-id:** identical-card-grids
-  ...
-
-## Top three highest-leverage fixes
-
-1. <pattern-id> — <one-line fix>
-2. <pattern-id> — <one-line fix>
-3. <pattern-id> — <one-line fix>
-
-## Verdict
-
-<one specific line>
-
-## Checked — no finding
-
-- <pattern-id> — <one-line "checked X, found Y, rule does not fire">
-
-## Unverifiable
-
-- <pattern-id> — <why this input form can't reach the tell, what input would unlock it>
-```
-
-Categories with zero findings are omitted. If the entire surface produces zero findings, say so explicitly in the verdict.
-
-## Guardrails
-
-- The catalog is closed. New patterns are added by editing `references/slop-catalog.md`, not by inventing them in a finding.
-- Severity is inherited from the catalog. Prominence shows up in the top-three summary, not as severity inflation.
-- Findings need evidence the user can re-read. "This feels generic" is not a finding. "`grid-cols-3 gap-6` repeating the same icon-heading-paragraph card four times in `app/page.tsx:24-72`" is.
-- The skill is read-only. It produces a critique; it does not edit code unless the user explicitly asks for the fixes to be applied as a follow-up step.
-
-## References
-
-- `references/slop-catalog.md` — 37 patterns across 8 categories with the five-field schema (id, name, tells, why-it-fails, alternative, severity).
-- `references/finding-template.md` — the structured shape every finding must conform to.
-
-## Verification
-
-A critique is complete when:
-
-- [ ] Every reported finding cites a specific pattern ID from `references/slop-catalog.md`, a file:line range, and a one-line tell.
-- [ ] No invented patterns appear — only IDs that exist in the closed catalog.
-- [ ] Severity matches the catalog entry (no inflation for prominence).
-- [ ] The verdict states a top-three by severity × prominence, or explicitly says "zero findings" if the surface is clean.
-- [ ] An "Unverifiable" section is included whenever the input form (e.g. markup-only, no rendered view) prevented full coverage; absent if every pattern was reachable.
-- [ ] No code was edited unless the user explicitly asked for the fixes to be applied as a follow-up.
-
-## Sibling skills
-
-The four design skills compose into a pipeline: **spec → build → review**. Hand off when the request crosses an axis.
-
-- `frontend-design` — generative UI builder. Run this skill against `frontend-design` output to catch slop tells before handoff.
-- `design-md` — DESIGN.md token spec; the source of truth for tokens lives there, not here. A taste critique does not edit token files.
-- `web-design-guidelines` — accessibility / UX rule-compliance review against Vercel WIG. Runs *in parallel* to a taste audit, not in place of it; the two cover non-overlapping rule sets.
+Critique alone does not authorize edits. If the user also requested fixes, apply
+them within that scope and check the result. Consult `frontend-design` for the
+implementation question or `design-md` for token-format work when useful; neither
+is a mandatory next step.

@@ -18,6 +18,10 @@ Contract: [`docs/specs/2026-07-27-distribution-profiles-spec.md`](../docs/specs/
 | `full.yaml` | inspection | The whole catalog, via the `"*"` sentinel. Never a default, no budget exemption. |
 | `harness-equivalences.yaml` | — | Per `(skill, harness)` declarations that the harness ships its own equivalent of a member. |
 
+`design` now selects `frontend-design` and `design-critique` for independently
+useful build and review tasks. Retiring the web-guidelines wrapper changes the
+profile identity; historical harness captures retain their original membership.
+
 `shipping` now covers Vercel deployment and deployment feedback (SC-02 revision
 17); ordinary GitHub publishing no longer contributes a skill to the profile.
 

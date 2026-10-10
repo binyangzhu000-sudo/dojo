@@ -58,15 +58,15 @@
     },
     {
       "name": "design-critique",
-      "description": "Audit implemented UI against a 37-pattern slop catalog and return ranked, scoped findings with named alternatives. Use when the user asks to review their UI, audit a design, check for AI-generated tells, critique the visuals, or asks 'does this look AI-generated'. For rule-compliance, accessibility, or UX audits use web-design-guidelines instead.",
+      "description": "Review an interface's visual hierarchy, usability, interaction states, and product fit. Use when asked to critique a UI, assess polish or accessibility concerns, identify generic design choices, or recommend what to improve. Return grounded findings and concrete alternatives; use frontend-design to implement changes.",
       "path": "skills/design-critique",
-      "version": "1.0.1"
+      "version": "2.0.0"
     },
     {
       "name": "design-md",
       "description": "Read, write, lint, diff, and export DESIGN.md files using the Google @google/design.md format. Use when the user mentions DESIGN.md, design tokens, extracting a design system, linting design tokens, exporting tokens to Tailwind, DTCG, or CSS variables, or when authoring a fresh design-system reference for a project.",
       "path": "skills/design-md",
-      "version": "2.0.0"
+      "version": "2.0.1"
     },
     {
       "name": "diagnose",
@@ -94,9 +94,9 @@
     },
     {
       "name": "frontend-design",
-      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.",
+      "description": "Build or refine frontend interfaces with intentional visual design. Use when creating a page or component, shaping a UI's visual direction, or improving its layout, hierarchy, and interaction states. For critique without implementation, use design-critique.",
       "path": "skills/frontend-design",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "license": "Complete terms in LICENSE.txt"
     },
     {
@@ -134,13 +134,6 @@
       "description": "Convert documents and files to Markdown using markitdown. Use when converting PDF, Word (.docx), PowerPoint (.pptx), Excel (.xlsx, .xls), HTML, CSV, JSON, XML, images (with EXIF/OCR), audio (with transcription), ZIP archives, YouTube URLs, or EPubs to Markdown format for LLM processing or text analysis.",
       "path": "skills/markdown-converter",
       "version": "1.0.0"
-    },
-    {
-      "name": "nextjs-app-router",
-      "description": "Next.js App Router expert guidance. Use when building, debugging, or architecting Next.js applications \u2014 routing, Server Components, Server Actions, layouts, data fetching, rendering strategies, metadata, image/font optimization, error handling, and hydration debugging. Triggers on tasks involving Next.js pages, app directory structure, RSC boundaries, or App Router migration.",
-      "path": "skills/nextjs-app-router",
-      "version": "1.0.1",
-      "license": "MIT"
     },
     {
       "name": "obsidian",
@@ -237,29 +230,22 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
-      "name": "vercel-composition-patterns",
-      "description": "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.",
-      "path": "skills/vercel-composition-patterns",
-      "version": "1.0.1",
-      "license": "MIT"
-    },
-    {
       "name": "vercel-deploy",
       "description": "Create and push new Vercel deployments. Use when the user wants to deploy, ship, go live, or create a preview \u2014 e.g. \"deploy my app\", \"push this live\", \"ship it\".",
       "path": "skills/vercel-deploy",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     {
       "name": "vercel-preview-logs",
       "description": "Retrieve and diagnose Vercel build/runtime logs. Use when the user asks to check errors, inspect logs, debug a failed build, or correlate a PR/commit with log output from an existing environment.",
       "path": "skills/vercel-preview-logs",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     {
       "name": "vercel-react-best-practices",
       "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
       "path": "skills/vercel-react-best-practices",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "license": "MIT"
     },
     {
@@ -267,12 +253,6 @@
       "description": "Guard against false completion claims when the cost of being wrong is high. Use when accepting delegated or subagent work, shipping high-risk changes (auth, migrations, infra, security, broad refactors), lacking fresh verification evidence (missing, stale, or conflicting), or being explicitly asked to confirm something is really done or audit a completion claim. Skip routine low-risk changes already covered by the repo's own checks \u2014 running those checks is enough.",
       "path": "skills/verify-before-complete",
       "version": "3.0.0"
-    },
-    {
-      "name": "web-design-guidelines",
-      "description": "Review UI code for Web Interface Guidelines compliance (accessibility, UX, code-level rules from Vercel WIG). Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\". For visual taste / AI-slop audits use design-critique instead.",
-      "path": "skills/web-design-guidelines",
-      "version": "1.0.0"
     },
     {
       "name": "write-plan",

@@ -1,5 +1,5 @@
 # AUTO-GENERATED from SKILL.md frontmatter — do not edit
 interface:
   display_name: "Design Critique"
-  short_description: "Audit implemented UI against a 37-pattern slop catalog and"
+  short_description: "Review an interface's visual hierarchy, usability, interaction"
   default_prompt: "Use $design-critique for this task."

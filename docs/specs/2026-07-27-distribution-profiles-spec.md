@@ -11,6 +11,14 @@ readiness: ready
 
 # Distribution Profiles Spec
 
+## Current design selection
+
+Updated 2026-10-10: SC-02's design anchors are `frontend-design` and
+`design-critique`. The web-guidelines wrapper is retired. The two-member selection
+supports independent implementation and critique, not a mandatory sequence.
+This changes profile identity; historical captures remain evidence of their
+original catalog and must not be rewritten to resemble the current selection.
+
 ## Problem
 
 Dojo currently treats its canonical catalog as though every skill
@@ -356,7 +364,7 @@ catalog as conformant.
   non-`core` members and includes these required anchors: `engineering`
   includes `create-cli` and `secure-code`; `research` includes `deep-research`
   and `research-architect`; `design` includes `design-critique` and
-  `web-design-guidelines`; `knowledge` includes `obsidian` and
+  `frontend-design`; `knowledge` includes `obsidian` and
   `session-retro`; `shipping` includes `vercel-deploy` and `vercel-preview-logs`;
   and `skill-authoring` includes `skill-creator` and `skill-standardizer`.
   `full` resolves to every canonical skill at the selected revision. Complete

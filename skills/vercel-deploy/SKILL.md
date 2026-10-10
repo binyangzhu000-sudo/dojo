@@ -3,7 +3,7 @@ name: vercel-deploy
 description: Create and push new Vercel deployments. Use when the user wants to deploy, ship, go live, or create a preview — e.g. "deploy my app", "push this live", "ship it".
 skill-type: workflow
 compatibility: "Requires Vercel CLI (npm i -g vercel). Requires network access for deployment."
-version: 1.0.1
+version: 1.0.2
 ---
 
 # Vercel Deploy
@@ -88,4 +88,5 @@ Before reporting success:
 Vercel/React stack — this skill is the *deploy* action.
 
 - `vercel-preview-logs` — paired diagnose action. Use after a failed deploy or to inspect runtime logs of a preview created here.
-- `nextjs-app-router`, `vercel-react-best-practices`, `vercel-composition-patterns` — parallel `reference` skills consulted before/during the build that produces the deploy artifact.
+- Consult project guidance and current framework documentation for build issues;
+  `vercel-react-best-practices` covers React performance questions.

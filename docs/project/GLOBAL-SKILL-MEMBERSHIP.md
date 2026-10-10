@@ -244,11 +244,11 @@ Current attribution: dojo 2,547 (53%), connectors 1,102 (23%), Codex bundled 607
   silently removes a selected skill. That reasoning governs *declaration*; it
   does not settle whether a Codex session needs two dojo image skills beside a
   bundled one.
-- **Project-scoping the four removed skills.** Removal from global is done;
-  deciding *which* repositories should carry them is not. Their descriptions
-  still cross-reference each other ("for rule-compliance…use
-  web-design-guidelines instead"), so a project that installs one and not its
-  pair leaves a dangling pointer in the listing.
+- **Project-scoped design skills.** The historical installation decisions above
+  are not the current deployment declaration. Selected additions are owned by
+  the workspace deployment configuration. As of 2026-10-10,
+  `web-design-guidelines` is retired from the canonical catalog; build and
+  critique no longer require reciprocal installation or a review pipeline.
 
 ## Reproducing this measurement
 

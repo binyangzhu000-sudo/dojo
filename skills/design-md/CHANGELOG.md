@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2026-10-10
+
+- Reconcile reference routing after retirement of the framework and web-guidelines skills.
+
 ## 2.0.0 - 2026-10-07
 
 - Upgrade the pinned CLI to 0.4.0 with CSS-variable exports, modern color inputs,

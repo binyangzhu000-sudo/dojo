@@ -2,7 +2,7 @@
 name: vercel-react-best-practices
 description: React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
 skill-type: reference
-version: 1.0.1
+version: 1.0.2
 license: MIT
 metadata:
   author: vercel
@@ -147,7 +147,7 @@ For the complete guide with all rules expanded: `references/compiled-guide.md`
 ## Boundaries
 
 - Not for React Native or mobile-specific patterns
-- Not for component architecture or composition patterns — use `vercel-composition-patterns` instead
+- Not for component architecture or composition decisions; use the project's existing contracts and requirements.
 - Not for non-React frameworks (Vue, Svelte, Angular)
 - Skip micro-optimizations (JS performance category) when profiling shows no bottleneck
 
@@ -168,6 +168,6 @@ For the complete guide with all rules expanded: `references/compiled-guide.md`
 
 Vercel/React reference layer — perf-focused. Sibling references at different axes:
 
-- `nextjs-app-router` — App Router routing, Server Components, async APIs. Pair with this skill on Next.js 13+ projects.
-- `vercel-composition-patterns` — component composition patterns. Orthogonal axis (architecture, not perf).
+- Consult project guidance and current framework documentation for App Router
+  and component-architecture questions.
 - `vercel-deploy` / `vercel-preview-logs` — runtime side; this skill is build/code side.
