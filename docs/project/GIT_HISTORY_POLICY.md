@@ -43,6 +43,20 @@ checks in [the workflow](../../.github/workflows/skill-contract-pilot.yml).
 [Operations](../system/OPERATIONS.md) owns the corresponding local commands.
 Hooks provide earlier feedback; they do not replace CI.
 
+## Branch Protection
+
+Verified 2026-10-11 with
+`gh api repos/davisbuilds/dojo/branches/main/protection`:
+`main` requires these GitHub Actions checks before merge:
+
+- `Validate Strict Skill Set` (Skill Contract Strict Set)
+- `check` (Publication Hygiene)
+
+Branches need not be up to date with `main`, no reviews are required, and admins
+are not enforced. Required checks match job names, so rename a job and its entry
+in the protection rule together. `Workflow Security Audit` is path-filtered and
+deliberately not required: a required check that never runs blocks every merge.
+
 ## Verify Remote Policy
 
 Merge settings above were queried on the stated date. Repository visibility or an
