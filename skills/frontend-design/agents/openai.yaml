@@ -1,5 +1,5 @@
 # AUTO-GENERATED from SKILL.md frontmatter — do not edit
 interface:
   display_name: "Frontend Design"
-  short_description: "Create distinctive, production-grade frontend interfaces with"
+  short_description: "Build or refine frontend interfaces with intentional visual"
   default_prompt: "Use $frontend-design for this task."

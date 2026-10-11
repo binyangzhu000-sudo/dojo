@@ -8,7 +8,7 @@ metadata:
     cli: "@google/design.md@0.4.0 (npm)"
     license: "Apache-2.0"
     exemplar-source: "https://styles.refero.design"
-version: 2.0.0
+version: 2.0.1
 ---
 
 # DESIGN.md
@@ -107,9 +107,9 @@ or another dependency merely to consume the export.
 ## Deliver and maintain
 
 Return the requested file, export, or findings with relevant verification and
-material limitations. Consult `frontend-design`, `design-critique`, or
-`web-design-guidelines` for the specific build, taste, or accessibility question;
-this does not require a spec/build/review pipeline or additional artifacts.
+material limitations. Consult `frontend-design` or `design-critique` for the
+specific implementation or interface-review question; this does not require a
+spec/build/review pipeline or additional artifacts.
 
 When updating the pin, reconcile the wrapper, metadata, primer, and actual package
 behavior together. Dojo's opt-in integration tests use the published CLI against

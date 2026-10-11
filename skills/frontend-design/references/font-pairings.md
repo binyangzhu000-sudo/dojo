@@ -1,5 +1,9 @@
 # Font Pairings by Aesthetic Direction
 
+Optional starting points for a new direction, not a requirement to replace an
+existing palette or font. Validate actual contrast, legibility, font availability,
+and loading behavior in the product; these examples do not establish those claims.
+
 Curated Google Fonts pairings. Each entry: display font (headings) + body font (text), with import URL.
 
 ---

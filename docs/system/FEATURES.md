@@ -22,17 +22,17 @@ jq '.skills | length' skills.json
 | Skill | Purpose |
 |-------|---------|
 | `design-md` | Read, write, lint, diff, and export DESIGN.md files via the pinned `@google/design.md` CLI |
-| `design-critique` | Audit UI against a 37-pattern slop catalog and return ranked, scoped findings |
-| `frontend-design` | Distinctive, production-grade frontend interfaces |
+| `design-critique` | Review product fit, visual hierarchy, usability, and interaction evidence |
+| `frontend-design` | Build and refine interfaces around product intent and existing conventions |
 | `gemini-imagen` | Image generation/editing via Gemini API |
 | `gpt-imagen` | Image generation/editing via OpenAI Image API |
 | `theme-factory` | Apply preset or generated theme systems |
-| `web-design-guidelines` | Review UI against web interface guidelines |
 
 These design skills cover complementary concerns: `design-md` maintains tokens,
-`frontend-design` builds interfaces, `design-critique` evaluates visual choices,
-and `web-design-guidelines` checks interface rules and accessibility. Consult the
-relevant concern; a token edit does not require the entire sequence.
+`frontend-design` builds interfaces, and `design-critique` evaluates visual choices
+and usability with appropriate evidence. Consult the relevant concern; a token
+edit does not require the entire sequence. Critique is not a claim of complete
+accessibility compliance.
 
 ### Development Workflows
 
@@ -75,8 +75,6 @@ relevant concern; a token edit does not require the entire sequence.
 | `vercel-deploy` | Deploy to Vercel |
 | `vercel-preview-logs` | Debug Vercel preview deployments |
 | `vercel-react-best-practices` | React/Next.js performance optimization |
-| `nextjs-app-router` | Next.js App Router patterns, data fetching, and debugging |
-| `vercel-composition-patterns` | Scalable React composition patterns |
 
 ### UI Automation
 

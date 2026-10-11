@@ -58,7 +58,7 @@ KINDS = frozenset(KIND_BY_NAME.values())
 # SC-02's required anchors, verbatim. Anchors constrain the *definition*; a
 # realization may still suppress one on a harness that ships its own equivalent.
 ANCHORS = {
-    "design": ("design-critique", "web-design-guidelines"),
+    "design": ("design-critique", "frontend-design"),
     "engineering": ("create-cli", "secure-code"),
     "knowledge": ("obsidian", "session-retro"),
     "research": ("deep-research", "research-architect"),

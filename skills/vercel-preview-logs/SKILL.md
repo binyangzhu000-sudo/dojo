@@ -2,7 +2,7 @@
 name: vercel-preview-logs
 description: Retrieve and diagnose Vercel build/runtime logs. Use when the user asks to check errors, inspect logs, debug a failed build, or correlate a PR/commit with log output from an existing environment.
 skill-type: workflow
-version: 1.0.1
+version: 1.0.2
 ---
 
 # Vercel Preview Logs
@@ -106,4 +106,5 @@ Vercel/React stack — this skill is the *diagnose* action paired with `vercel-d
 
 - `vercel-deploy` — paired action. Common upstream cause of the logs inspected here.
 - `diagnose` — generalist debugging discipline. Use this skill first to gather Vercel-specific log evidence; hand off to `diagnose` for the broader feedback-loop framing if the bug isn't surface-level.
-- `nextjs-app-router`, `vercel-react-best-practices` — referenced when log diagnosis surfaces App Router / React performance issues.
+- Consult project guidance and current framework documentation for App Router
+  issues, or `vercel-react-best-practices` for a React performance question.

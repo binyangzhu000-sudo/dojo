@@ -1,5 +1,9 @@
 # Color Palettes by Mood
 
+Optional starting points for a new direction, not a requirement to replace an
+existing palette or font. Validate actual contrast, legibility, font availability,
+and loading behavior in the product; these examples do not establish those claims.
+
 Ready-to-use palettes with CSS custom properties. Each palette: 5 core colors + suggested usage.
 
 ---
